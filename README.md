@@ -18,6 +18,28 @@ The design uses metal1 for power and ground rails. Routing for the cells is done
 
 ![detail view](images/osc_detailed.png?raw=true "Oscillator Layout Detail")
 
-## Digital Simulation
+# Digital Simulation
 
 The digital simulation for the oscillator is done using [IRSIM](http://opencircuitdesign.com/irsim/). 
+
+![irsim](images/osc_irsim.png?raw=true "IRSIM Simulation")
+
+The repository has all the files to re-run the above simulation. To simulate the oscillator:
+```bash
+irsim sky130A_1v80_27.prm OSC.sim -@ OSC.cmd
+```
+To manually provide the stimuli to the oscillator edit the `OSC.cmd` file.
+
+# Analog Simulation
+
+For analog simulation [ngspice](http://ngspice.sourceforge.net/) is used. There are two types characterization:
+1. Characterization of oscillator spice written by hand 
+2. Characterization of oscillator spice extracted from the layout
+
+For (1), the stimuli spice file `OSC_ideal.sp` provides stimulus to the hand written spice file of the oscillator `OSC.spc`.
+
+For (2), the stimuli spice file `OSC_extracted.sp` provides stimulus to the extracted spice file of the oscillator `OSC.spice`.
+
+
+
+
