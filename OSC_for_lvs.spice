@@ -1,0 +1,46 @@
+* NGSPICE file created from OSC.ext - technology: sky130A
+
+.subckt sky130_fd_sc_hd__inv_1 A VGND VPWR Y VNB VPB
+X0 Y A VGND VNB sky130_fd_pr__nfet_01v8 ad=1.69e+11p pd=1.82e+06u as=1.69e+11p ps=1.82e+06u w=650000u l=150000u
+X1 Y A VPWR VPB sky130_fd_pr__pfet_01v8_hvt ad=2.6e+11p pd=2.52e+06u as=2.6e+11p ps=2.52e+06u w=1e+06u l=150000u
+.ends
+
+.subckt sky130_fd_sc_hd__nand2_1 A B VGND VPWR Y VNB VPB
+X0 VPWR A Y VPB sky130_fd_pr__pfet_01v8_hvt ad=5.2e+11p pd=5.04e+06u as=2.7e+11p ps=2.54e+06u w=1e+06u l=150000u
+X1 Y A a_113_47# VNB sky130_fd_pr__nfet_01v8 ad=1.69e+11p pd=1.82e+06u as=1.755e+11p ps=1.84e+06u w=650000u l=150000u
+X2 a_113_47# B VGND VNB sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=1.69e+11p ps=1.82e+06u w=650000u l=150000u
+X3 Y B VPWR VPB sky130_fd_pr__pfet_01v8_hvt ad=0p pd=0u as=0p ps=0u w=1e+06u l=150000u
+.ends
+
+.subckt sky130_fd_sc_hd__mux2_1 A0 A1 S VGND VPWR X VNB VPB
+X0 a_218_374# S VPWR VPB sky130_fd_pr__pfet_01v8_hvt ad=1.533e+11p pd=1.57e+06u as=4.553e+11p ps=4.29e+06u w=420000u l=150000u
+X1 VGND a_505_21# a_439_47# VNB sky130_fd_pr__nfet_01v8 ad=5.155e+11p pd=4.31e+06u as=1.386e+11p ps=1.5e+06u w=420000u l=150000u
+X2 a_76_199# A0 a_218_374# VPB sky130_fd_pr__pfet_01v8_hvt ad=3.864e+11p pd=2.68e+06u as=0p ps=0u w=420000u l=150000u
+X3 a_505_21# S VGND VNB sky130_fd_pr__nfet_01v8 ad=1.092e+11p pd=1.36e+06u as=0p ps=0u w=420000u l=150000u
+X4 a_439_47# A0 a_76_199# VNB sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=1.995e+11p ps=1.79e+06u w=420000u l=150000u
+X5 a_535_374# A1 a_76_199# VPB sky130_fd_pr__pfet_01v8_hvt ad=8.82e+10p pd=1.26e+06u as=0p ps=0u w=420000u l=150000u
+X6 a_76_199# A1 a_218_47# VNB sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=1.386e+11p ps=1.5e+06u w=420000u l=150000u
+X7 a_218_47# S VGND VNB sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=420000u l=150000u
+X8 VPWR a_76_199# X VPB sky130_fd_pr__pfet_01v8_hvt ad=0p pd=0u as=2.6e+11p ps=2.52e+06u w=1e+06u l=150000u
+X9 VGND a_76_199# X VNB sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=1.69e+11p ps=1.82e+06u w=650000u l=150000u
+X10 VPWR a_505_21# a_535_374# VPB sky130_fd_pr__pfet_01v8_hvt ad=0p pd=0u as=0p ps=0u w=420000u l=150000u
+X11 a_505_21# S VPWR VPB sky130_fd_pr__pfet_01v8_hvt ad=1.176e+11p pd=1.4e+06u as=0p ps=0u w=420000u l=150000u
+.ends
+
+.subckt OSC EN SEL VPWR VGND OUT
+Xsky130_fd_sc_hd__inv_1_4 sky130_fd_sc_hd__inv_1_4/A VGND VPWR sky130_fd_sc_hd__inv_1_5/A
++ VGND VPWR sky130_fd_sc_hd__inv_1
+Xsky130_fd_sc_hd__inv_1_5 sky130_fd_sc_hd__inv_1_5/A VGND VPWR sky130_fd_sc_hd__inv_1_5/Y
++ VGND VPWR sky130_fd_sc_hd__inv_1
+Xsky130_fd_sc_hd__nand2_1_0 EN sky130_fd_sc_hd__mux2_1_0/X VGND VPWR sky130_fd_sc_hd__inv_1_0/A
++ VGND VPWR sky130_fd_sc_hd__nand2_1
+Xsky130_fd_sc_hd__mux2_1_0 sky130_fd_sc_hd__inv_1_2/A sky130_fd_sc_hd__inv_1_5/Y SEL
++ VGND VPWR sky130_fd_sc_hd__mux2_1_0/X VGND VPWR sky130_fd_sc_hd__mux2_1
+Xsky130_fd_sc_hd__inv_1_1 OUT VGND VPWR sky130_fd_sc_hd__inv_1_2/A VGND VPWR sky130_fd_sc_hd__inv_1
+Xsky130_fd_sc_hd__inv_1_0 sky130_fd_sc_hd__inv_1_0/A VGND VPWR OUT VGND VPWR sky130_fd_sc_hd__inv_1
+Xsky130_fd_sc_hd__inv_1_2 sky130_fd_sc_hd__inv_1_2/A VGND VPWR sky130_fd_sc_hd__inv_1_3/A
++ VGND VPWR sky130_fd_sc_hd__inv_1
+Xsky130_fd_sc_hd__inv_1_3 sky130_fd_sc_hd__inv_1_3/A VGND VPWR sky130_fd_sc_hd__inv_1_4/A
++ VGND VPWR sky130_fd_sc_hd__inv_1
+.ends
+
