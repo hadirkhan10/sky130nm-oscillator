@@ -17,3 +17,7 @@ The design uses metal1 for power and ground rails. Routing for the cells is done
 ## Detailed view
 
 ![detail view](images/osc_detailed.png?raw=true "Oscillator Layout Detail")
+
+## Digital Simulation
+
+The digital simulation for the oscillator is done using [IRSIM](http://opencircuitdesign.com/irsim/). 
