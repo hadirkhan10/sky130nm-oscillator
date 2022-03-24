@@ -13,3 +13,7 @@ The standard cells are placed and routed in a way to save area. This means inste
 The design uses metal1 for power and ground rails. Routing for the cells is done with metal1 and metal2.
 
 ![top view](images/osc_top.png?raw=true "Oscillator Layout Top")
+
+## Detailed view
+
+![detail view](images/osc_detailed.png?raw=true "Oscillator Layout Detail")
